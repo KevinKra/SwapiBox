@@ -1,20 +1,13 @@
 import React from "react";
-import "./App.css";
+import "./_App.scss";
+import SplashContainer from "./SplashContainer/SplashContainer";
 
 function App() {
   return (
     <div className="App">
-      <div className="splash-container">
-        <h1>SwapiBox</h1>
-        <div>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus
-          deserunt explicabo sunt repellat doloribus provident illo est corporis
-          voluptas dolorum? Impedit inventore accusamus, iusto corporis aperiam
-          quia veniam quae voluptatem.
-        </div>
-      </div>
+      <SplashContainer />
       <div className="card-container">
-        <p>Hello World</p>
+        <h1>EXPLORE</h1>
       </div>
     </div>
   );
