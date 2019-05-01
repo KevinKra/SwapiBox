@@ -1,0 +1,47 @@
+@import "../variables";
+
+.splash-container {
+  align-items: center;
+  background-color: $color-dgrey;
+  // border: 1px solid red;
+  color: $font-light;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 1rem 3rem;
+  width: 50vw;
+}
+
+.title-content {
+  // border: 1px solid red;
+  text-align: center;
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+
+.title-content h1 {
+  // border: 1px solid red;
+  font-size: $font-size-l;
+  margin: 0;
+}
+
+.title-content p {
+  // border: 1px solid red;
+  font-size: $font-size-s;
+  margin: 0;
+}
+
+.film-prologue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // border: 1px solid red;
+  display: flex;
+  font-size: $font-size-m;
+  height: 60vh;
+  justify-content: center;
+  line-height: 2;
+  margin-top: 3rem;
+  max-width: 550px;
+  text-align: center;
+}
