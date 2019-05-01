@@ -20,7 +20,8 @@ class SplashContainer extends React.Component {
           to slaughter Jawas? If they traced the robots here, they may have
           learned who they sold them to. And that would lead them home! Wait,
           Luke! It’s too dangerous. Uncle Owen! Aunt Beru! Uncle Owen!
-          <span>A New Hope 1977 - 05 - 25</span>
+          <span className="movie-title">A New Hope</span>
+          <span className="movie-year">1977 - 05 - 25</span>
         </p>
       </section>
     );

@@ -15,6 +15,11 @@
   display: flex;
   justify-content: center;
   min-height: 20vh;
-  transform: translateY(-9rem);
+  transform: translateY(-9.5rem);
   width: 48vw;
+}
+
+.card-container h1 {
+  // border: 1px solid red;
+  margin-top: 3rem;
 }
