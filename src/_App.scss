@@ -8,18 +8,3 @@
   flex-direction: column;
   min-height: 100vh;
 }
-
-.card-container {
-  background-color: $color-white;
-  border: 1px solid blue;
-  display: flex;
-  justify-content: center;
-  min-height: 20vh;
-  transform: translateY(-9.5rem);
-  width: 48vw;
-}
-
-.card-container h1 {
-  // border: 1px solid red;
-  margin-top: 3rem;
-}

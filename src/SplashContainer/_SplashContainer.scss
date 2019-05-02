@@ -7,13 +7,12 @@
   color: $font-light;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
   padding: 1rem 3rem;
   width: 50vw;
 }
 
 .title-content {
-  // border: 1px solid red;
   text-align: center;
   align-self: flex-start;
   margin-top: 0.5rem;
@@ -21,7 +20,8 @@
 
 .title-content h1 {
   // border: 1px solid red;
-  font-size: $font-size-l;
+  // font-size: $font-size-l;
+  font-size: 64px;
   margin: 0;
 }
 
