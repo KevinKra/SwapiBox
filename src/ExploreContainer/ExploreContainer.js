@@ -10,25 +10,8 @@ class ExploreContainer extends React.Component {
     };
   }
 
-  componentDidMount() {
-    this.fetchAllData();
-  }
-
   updateTopic = newTopic => {
     this.setState({ currentTopic: newTopic });
-  };
-
-  fetchAllData = () => {
-    const urls = [
-      `https://swapi.co/api/people`,
-      `https://swapi.co/api/planets`,
-      `https://swapi.co/api/vehicles`,
-      `https://swapi.co/api/species`
-    ];
-    const resolvedPromises = urls.map(url =>
-      fetch(url).then(response => response.json())
-    );
-    Promise.all(resolvedPromises).then(response => console.log(response));
   };
 
   render() {
@@ -36,9 +19,9 @@ class ExploreContainer extends React.Component {
       <section className="card-container">
         <h1>EXPLORE</h1>
         <div className="btn-section">
-          <Button label={"PEOPLE"} />
-          <Button label={"PLANETS"} />
-          <Button label={"VEHICLES"} />
+          <Button updateTopic={this.updateTopic} label={"PEOPLE"} />
+          <Button updateTopic={this.updateTopic} label={"PLANETS"} />
+          <Button updateTopic={this.updateTopic} label={"VEHICLES"} />
         </div>
         <a className="view-favorites" href="">
           View Favorites
