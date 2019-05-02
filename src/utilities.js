@@ -1,8 +1,8 @@
 export const clearRandomMovie = data => {
   const movieInfo = {
-    summary: data.open_crawl,
+    summary: data.opening_crawl,
     title: data.title,
-    releaseDate: data.releaseDate
+    releaseDate: data.release_date
   };
   return movieInfo;
 };
