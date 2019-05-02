@@ -49,8 +49,3 @@ export const filterDataVehicle = data => {
   }, []);
   return output;
 };
-
-// Name
-// Model
-// Class
-// Number of Passengers
