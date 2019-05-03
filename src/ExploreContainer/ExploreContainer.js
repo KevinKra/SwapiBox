@@ -6,39 +6,32 @@ class ExploreContainer extends React.Component {
   constructor() {
     super();
     this.state = {
-      currentTopic: {}
+      people: {},
+      planets: {}
     };
   }
 
-  componentDidMount() {
-    this.fetchAllData();
-  }
-
-  updateTopic = newTopic => {
-    this.setState({ currentTopic: newTopic });
+  updatePeople = people => {
+    console.log(people);
+    console.log("UpdateTopic has been fired");
+    this.setState({ people });
   };
 
-  fetchAllData = () => {
-    const urls = [
-      `https://swapi.co/api/people`,
-      `https://swapi.co/api/planets`,
-      `https://swapi.co/api/vehicles`,
-      `https://swapi.co/api/species`
-    ];
-    const resolvedPromises = urls.map(url =>
-      fetch(url).then(response => response.json())
-    );
-    Promise.all(resolvedPromises).then(response => console.log(response));
+  updateState = (targetState, newState) => {
+    console.log(targetState);
+    console.log("UpdateState has been fired");
+    this.setState({ [targetState]: newState });
   };
 
   render() {
+    console.log(this.state);
     return (
       <section className="card-container">
         <h1>EXPLORE</h1>
         <div className="btn-section">
-          <Button label={"PEOPLE"} />
-          <Button label={"PLANETS"} />
-          <Button label={"VEHICLES"} />
+          <Button updateState={this.updateState} label={"PEOPLE"} />
+          <Button updateState={this.updateState} label={"PLANETS"} />
+          <Button updateState={this.updateState} label={"VEHICLES"} />
         </div>
         <a className="view-favorites" href="">
           View Favorites
