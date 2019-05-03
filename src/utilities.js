@@ -67,34 +67,18 @@ export const filterDataPlanet = data => {
 };
 
 const fetchResidents = planets => {
-  function collectResidents(resident) {
-    let total = [];
-    total.push(resident);
-    return total;
-  }
-
   console.log("input planets", planets);
-  const promises = planets.map(planet => {
+  planets.map(planet => {
     if (planet.residents) {
       const a = planet.residents.map(resident => {
-        return (
-          fetch(resident)
-            .then(response => response.json())
-            //   .then(parsed => console.log("parsed", parsed));
-            // console.log("planet", planet);
-            .then(parsed => ({
-              // ...planet,
-              residents: parsed.name
-            }))
-        );
+        return fetch(resident)
+          .then(response => response.json())
+          .then(parsed => ({
+            residents: parsed.name
+          }));
       });
-      // Promise.all(a).then(promise => console.log("promises", promise));
       Promise.all(a)
-        .then(response =>
-          // response.forEach(element => console.log(element.residents))
-          // response.forEach(element => planet.residents.push(element.residents))
-          response.map(element => element.residents)
-        )
+        .then(response => response.map(element => element.residents))
         .then(result => (planet.residents = result));
     }
   });
