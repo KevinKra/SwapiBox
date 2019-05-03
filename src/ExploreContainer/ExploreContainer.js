@@ -6,7 +6,8 @@ class ExploreContainer extends React.Component {
   constructor() {
     super();
     this.state = {
-      people: {}
+      people: {},
+      planets: {}
     };
   }
 
@@ -16,15 +17,21 @@ class ExploreContainer extends React.Component {
     this.setState({ people });
   };
 
+  updateState = (targetState, newState) => {
+    console.log(targetState);
+    console.log("UpdateState has been fired");
+    this.setState({ [targetState]: newState });
+  };
+
   render() {
     console.log(this.state);
     return (
       <section className="card-container">
         <h1>EXPLORE</h1>
         <div className="btn-section">
-          <Button updatePeople={this.updatePeople} label={"PEOPLE"} />
-          <Button updatePeople={this.updatePeople} label={"PLANETS"} />
-          <Button updatePeople={this.updatePeople} label={"VEHICLES"} />
+          <Button updateState={this.updateState} label={"PEOPLE"} />
+          <Button updateState={this.updateState} label={"PLANETS"} />
+          <Button updateState={this.updateState} label={"VEHICLES"} />
         </div>
         <a className="view-favorites" href="">
           View Favorites
