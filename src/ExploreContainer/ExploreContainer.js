@@ -6,22 +6,25 @@ class ExploreContainer extends React.Component {
   constructor() {
     super();
     this.state = {
-      currentTopic: {}
+      people: {}
     };
   }
 
-  updateTopic = newTopic => {
-    this.setState({ currentTopic: newTopic });
+  updatePeople = people => {
+    console.log(people);
+    console.log("UpdateTopic has been fired");
+    this.setState({ people });
   };
 
   render() {
+    console.log(this.state);
     return (
       <section className="card-container">
         <h1>EXPLORE</h1>
         <div className="btn-section">
-          <Button updateTopic={this.updateTopic} label={"PEOPLE"} />
-          <Button updateTopic={this.updateTopic} label={"PLANETS"} />
-          <Button updateTopic={this.updateTopic} label={"VEHICLES"} />
+          <Button updatePeople={this.updatePeople} label={"PEOPLE"} />
+          <Button updatePeople={this.updatePeople} label={"PLANETS"} />
+          <Button updatePeople={this.updatePeople} label={"VEHICLES"} />
         </div>
         <a className="view-favorites" href="">
           View Favorites

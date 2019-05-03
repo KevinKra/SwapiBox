@@ -9,21 +9,18 @@ import {
 class Button extends React.Component {
   constructor() {
     super();
-    this.state = {
-      topic: {}
-    };
   }
 
   fetchData = () => {
     fetch(`https://swapi.co/api/${this.props.label.toLowerCase()}`)
       .then(answer => answer.json())
-      .then(unfilteredData => this.conditionalFilter(unfilteredData))
-      .then(filteredData => this.props.updateTopic(filteredData));
+      .then(unfilteredData => this.conditionalFilter(unfilteredData));
+    // .then(filteredData => this.props.updateTopic(filteredData));
   };
 
   conditionalFilter = data => {
     if (this.props.label.toLowerCase() === "people") {
-      return filterDataPerson(data);
+      return this.filterDataPerson(data);
     } else if (this.props.label.toLowerCase() === "planets") {
       return filterDataPlanet(data);
     } else if (this.props.label.toLowerCase() === "vehicles") {
@@ -32,6 +29,51 @@ class Button extends React.Component {
       console.log("Invalid label");
     }
   };
+
+  ///////
+  filterDataPerson = data => {
+    const output = data.results.reduce((accum, person) => {
+      const result = {
+        name: person.name,
+        homeworld: person.homeworld,
+        species: person.species
+      };
+      accum.push(result);
+      return accum;
+    }, []);
+    return this.fetchData2(output);
+  };
+
+  fetchData2 = peopleArray => {
+    const promises = peopleArray.map(person => {
+      return fetch(person.homeworld)
+        .then(response => response.json())
+        .then(data => ({
+          ...person,
+          homeworld: data.name,
+          population: data.population
+        }));
+    });
+    Promise.all(promises).then(result => this.fetchSpecies(result));
+  };
+
+  fetchSpecies = peopleArray => {
+    console.log("input", peopleArray);
+    // console.log("species URL", peopleArray[0].species[0]);
+    const promises = peopleArray.map(person =>
+      fetch(person.species[0])
+        .then(response => response.json())
+        // .then(shape => console.log(shape))
+        .then(data => ({
+          ...person,
+          species: data.name
+        }))
+    );
+    return Promise.all(promises).then(response =>
+      this.props.updatePeople(response)
+    );
+  };
+  /////
 
   render() {
     return (
