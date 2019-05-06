@@ -2,7 +2,7 @@
 
 .card-container {
   background-color: $color-white;
-  border: 1px solid blue;
+  border: 1px solid $color-dgrey;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,17 +10,10 @@
   min-height: 20vh;
   transform: translateY(-9.5rem);
   width: 48vw;
-}
-
-.card-container h1 {
-  // border: 1px solid red;
-  // margin-top: 3rem;
-  font-size: $font-size-l;
-  margin-top: 3rem;
+  min-width: 300px;
 }
 
 .btn-section {
-  // border: 1px solid red;
   margin-bottom: 1rem;
 }
 
@@ -28,20 +21,17 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  // border: 1px solid red;
   width: 95%;
 }
 
-.output-card {
-  border: 1px solid blue;
-  min-height: 20rem;
-  min-width: 12rem;
-  margin: 0.5rem;
-}
-
 .view-favorites {
-  // align-self: flex-end;
-  // padding-right: 5%;
   font-size: $font-size-s;
   margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 835px) {
+  .btn-section {
+    border: 1px solid red;
+    width: 90%;
+  }
 }
