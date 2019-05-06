@@ -28,6 +28,8 @@ class CardContainer extends React.Component {
           population={person.population}
           species={person.species}
           key={Number(Math.random())}
+          id={`person ${person.name}`}
+          addToFavorites={this.props.addToFavorites}
           topic={currentTopic}
         />
       );
@@ -45,6 +47,8 @@ class CardContainer extends React.Component {
           residents={planet.residents}
           terrain={planet.terrain}
           key={Number(Math.random())}
+          id={`planet ${planet.name}`}
+          addToFavorites={this.props.addToFavorites}
           topic={currentTopic}
         />
       );
@@ -61,6 +65,8 @@ class CardContainer extends React.Component {
           vClass={vehicle.class}
           passengers={vehicle.passengers}
           key={Number(Math.random())}
+          id={`vehicle ${vehicle.name}`}
+          addToFavorites={this.props.addToFavorites}
           topic={currentTopic}
         />
       );
@@ -68,7 +74,6 @@ class CardContainer extends React.Component {
   };
 
   render() {
-    console.log("passed state", this.props.currentTopic);
     const { currentTopic } = this.props;
     return (
       <article className="cards">
