@@ -6,14 +6,15 @@
   min-height: 20rem;
   min-width: 12rem;
   margin: 0.5rem;
-  width: 255px;
-  height: 250px;
+  width: 265px;
+  height: 270px;
   padding: 5px;
   box-shadow: 1px 1px 5px $shadow;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: $color-white;
   transition: 0.1s transform ease-in-out;
   cursor: pointer;
   &:hover {
@@ -34,4 +35,15 @@
   ul {
     text-align: center;
   }
+}
+
+.card-backdrop {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  height: 100%;
+  width: 85%;
+  color: rgb(235, 235, 235);
+  background-color: $color-dgrey;
+  border: 2px solid black;
 }
