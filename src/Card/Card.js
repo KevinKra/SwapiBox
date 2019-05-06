@@ -27,7 +27,8 @@ const Card = props => {
         <React.Fragment>
           <li>CLIMATE: {climate}</li>
           <li>TERRAIN: {terrain}</li>
-          <li>MAP thru RESIDENTS</li>
+          <li>POPULATION: {population}</li>
+          <li>RESIDENTS</li>
         </React.Fragment>
       );
     } else if (props.topic === "vehicles") {
@@ -42,11 +43,14 @@ const Card = props => {
       return <li>ERROR</li>;
     }
   };
+
   return (
-    <li className="output-card">
-      <p>Favorite</p>
-      <h1>{props.name}</h1>
-      <ul>{listVariant()}</ul>
+    <li className="output-card" onClick={() => props.addToFavorites(props.id)}>
+      <div className="card-backdrop">
+        <p>Favorite</p>
+        <h1>{props.name}</h1>
+        <ul>{listVariant()}</ul>
+      </div>
     </li>
   );
 };
