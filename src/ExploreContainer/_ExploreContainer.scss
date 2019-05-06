@@ -7,10 +7,13 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  min-height: 20vh;
   transform: translateY(-9.5rem);
   width: 48vw;
   min-width: 300px;
+  i {
+    color: $color-dgrey;
+    transform: translateY(-5rem);
+  }
 }
 
 .btn-section {
@@ -27,11 +30,21 @@
 .view-favorites {
   font-size: $font-size-s;
   margin-bottom: 1rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  &:hover {
+    cursor: pointer;
+  }
+  &:active {
+    transform: scale(0.98);
+  }
+  &:focus {
+    outline: 0;
+  }
 }
 
 @media only screen and (max-width: 835px) {
   .btn-section {
-    border: 1px solid red;
     width: 90%;
   }
 }
