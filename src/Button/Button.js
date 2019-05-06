@@ -1,10 +1,5 @@
 import React from "react";
 import "./Button.scss";
-import {
-  filterDataPerson,
-  filterDataPlanet,
-  filterDataVehicle
-} from "../utilities";
 
 class Button extends React.Component {
   fetchData = () => {
@@ -14,18 +9,18 @@ class Button extends React.Component {
   };
 
   conditionalFilter = data => {
-    if (this.props.label.toLowerCase() === "people") {
+    const { label } = this.props;
+    if (label.toLowerCase() === "people") {
       return this.filterDataPerson(data);
-    } else if (this.props.label.toLowerCase() === "planets") {
+    } else if (label.toLowerCase() === "planets") {
       return this.filterDataPlanet(data);
-    } else if (this.props.label.toLowerCase() === "vehicles") {
-      return filterDataVehicle(data);
+    } else if (label.toLowerCase() === "vehicles") {
+      return this.filterDataVehicle(data);
     } else {
       console.log("Invalid label");
     }
   };
 
-  ///////
   filterDataPerson = data => {
     const output = data.results.reduce((accum, person) => {
       const result = {
@@ -66,9 +61,7 @@ class Button extends React.Component {
       this.props.updateState("people", response)
     );
   };
-  /////
 
-  //////
   filterDataPlanet = data => {
     const output = data.results.reduce((accum, planet) => {
       const result = {
@@ -86,7 +79,7 @@ class Button extends React.Component {
 
   fetchResidents = planets => {
     console.log("input planets", planets);
-    planets.map(planet => {
+    planets.forEach(planet => {
       if (planet.residents) {
         const a = planet.residents.map(resident => {
           return fetch(resident)
@@ -102,7 +95,20 @@ class Button extends React.Component {
       }
     });
   };
-  ////////
+
+  filterDataVehicle = data => {
+    const output = data.results.reduce((accum, vehicle) => {
+      const result = {
+        name: vehicle.name,
+        model: vehicle.model,
+        class: vehicle.vehicle_class,
+        passengers: vehicle.passengers
+      };
+      accum.push(result);
+      return accum;
+    }, []);
+    this.props.updateState("vehicles", output);
+  };
 
   render() {
     return (
